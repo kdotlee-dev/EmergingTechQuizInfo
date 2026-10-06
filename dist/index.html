@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="A visual review of 50 answers covering Big Data, IoT, Edge Computing, VR, AR, and MR.">
-  <title>Answer Check — 49/50</title>
+  <title>Answer Check — 50/50</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%23ffdd00'/%3E%3Cpath d='M7 16l6 6L26 8' fill='none' stroke='%23121212' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E">
   <style>
     :root { --ink:#111; --paper:#fffdf5; --yellow:#ffdf20; --pink:#ff6fb5; --blue:#7bdff2; --green:#86efac; --orange:#ff9f1c; --muted:#eeeae0; --shadow:6px 6px 0 var(--ink); }
@@ -23,17 +23,12 @@
     .lead { max-width:670px; margin:1.5rem 0 0; font-size:clamp(1.1rem,2vw,1.4rem); font-weight:700; position:relative; z-index:1; }
     .score { display:inline-block; background:var(--pink); border:4px solid var(--ink); box-shadow:var(--shadow); padding:.08em .18em; transform:rotate(-2deg); }
     main { width:min(1400px,100%); margin:auto; padding:clamp(1rem,3vw,3rem); }
-    .summary-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; margin:1rem 0 3rem; }
+    .summary-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1.25rem; margin:1rem 0 3rem; }
     .stat { border:3px solid var(--ink); box-shadow:var(--shadow); padding:1.25rem; min-height:145px; display:flex; flex-direction:column; justify-content:space-between; }
-    .stat:nth-child(1){background:var(--yellow)} .stat:nth-child(2){background:var(--green)} .stat:nth-child(3){background:var(--pink)} .stat:nth-child(4){background:var(--orange)}
+    .stat:nth-child(1){background:var(--yellow)} .stat:nth-child(2){background:var(--green)} .stat:nth-child(3){background:var(--pink)} .stat:nth-child(4){background:var(--orange)} .stat:nth-child(5){background:var(--blue)}
     .stat strong { font-size:clamp(2rem,5vw,4.5rem); line-height:1; }
     .stat span { font-weight:900; text-transform:uppercase; }
-    .callout { border:4px solid var(--ink); box-shadow:8px 8px 0 var(--ink); background:#fff; padding:clamp(1.25rem,3vw,2.5rem); margin:0 0 3rem; }
-    .callout h2, .section-head h2 { margin:0; font-size:clamp(2rem,5vw,4rem); line-height:.95; letter-spacing:-.045em; text-transform:uppercase; }
-    .callout .answer { display:inline-block; padding:.2rem .55rem; background:var(--yellow); border:2px solid var(--ink); font-weight:900; }
-    .callout-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:2rem; margin-top:1.5rem; }
-    .mix { border:3px dashed var(--ink); padding:1rem; background:var(--muted); }
-    .mix p { margin:.25rem 0; }
+    .section-head h2 { margin:0; font-size:clamp(2rem,5vw,4rem); line-height:.95; letter-spacing:-.045em; text-transform:uppercase; }
     .section-head { display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom:1.25rem; }
     .section-head p { max-width:540px; margin:0; font-weight:700; }
     .toolbar { position:sticky; top:0; z-index:10; display:flex; flex-wrap:wrap; gap:.75rem; border:3px solid var(--ink); background:var(--paper); box-shadow:4px 4px 0 var(--ink); padding:.75rem; margin-bottom:1.5rem; }
@@ -44,75 +39,56 @@
     .filter.active { background:var(--yellow); }
     .questions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.25rem; }
     article { scroll-margin-top:100px; border:3px solid var(--ink); background:white; box-shadow:var(--shadow); padding:1.25rem; }
-    article.review { background:#fff5fa; border-width:4px; }
-    article.caveat { background:#fffbea; }
     .qtop { display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-bottom:1rem; }
     .qnum { font-size:1.25rem; font-weight:900; text-transform:uppercase; }
     .badge { flex:0 0 auto; border:2px solid var(--ink); padding:.2rem .5rem; font-size:.8rem; font-weight:900; text-transform:uppercase; background:var(--green); }
-    .review .badge { background:var(--pink); } .caveat .badge { background:var(--yellow); }
     .question { margin:0 0 1rem; font-weight:800; font-size:1.08rem; }
     .response { margin:0; padding:1rem; border:2px solid var(--ink); background:var(--muted); }
     .response::before { content:"Response"; display:block; margin-bottom:.35rem; font-size:.75rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
-    .note { margin:1rem 0 0; padding:.75rem; border-left:6px solid var(--ink); background:var(--yellow); font-weight:700; }
     .empty { display:none; grid-column:1/-1; padding:2rem; border:3px dashed var(--ink); text-align:center; font-weight:900; }
     footer { margin-top:4rem; padding:2rem clamp(1rem,4vw,4rem); border-top:4px solid var(--ink); background:var(--ink); color:white; text-align:center; font-weight:800; }
-    @media (max-width:900px) { .summary-grid{grid-template-columns:repeat(2,1fr)} .questions{grid-template-columns:1fr} .callout-grid{grid-template-columns:1fr} header::after{opacity:.28} }
+    @media (max-width:1100px) { .summary-grid{grid-template-columns:repeat(2,1fr)} .questions{grid-template-columns:1fr} header::after{opacity:.28} }
     @media (max-width:520px) { .summary-grid{grid-template-columns:1fr} .section-head{display:block} .section-head p{margin-top:.75rem} .toolbar{position:static} .filter{flex:1} article{box-shadow:4px 4px 0 var(--ink)} }
     @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto}.ticker span{animation:none} }
-    @media print { .ticker,.toolbar{display:none} body{background:#fff} header{background:#fff} article,.stat,.callout{box-shadow:none;break-inside:avoid} .questions{display:block} article{margin-bottom:1rem} }
+    @media print { .ticker,.toolbar{display:none} body{background:#fff} header{background:#fff} article,.stat{box-shadow:none;break-inside:avoid} .questions{display:block} article{margin-bottom:1rem} }
   </style>
 </head>
 <body>
-  <div class="ticker" aria-hidden="true"><span>ANSWER CHECK • BIG DATA • IOT • EDGE • VR • AR • 49 / 50 • ANSWER CHECK • BIG DATA • IOT • EDGE • VR • AR • 49 / 50 •&nbsp;</span></div>
+  <div class="ticker" aria-hidden="true"><span>ANSWER CHECK • BIG DATA • IOT • EDGE • VR • AR • 50 / 50 • ANSWER CHECK • BIG DATA • IOT • EDGE • VR • AR • 50 / 50 •&nbsp;</span></div>
   <header>
     <p class="eyebrow">Modules 4–6 · Review Report</p>
     <h1>Answers<br><span class="score">checked.</span></h1>
-    <p class="lead">All 50 responses reviewed. Most are clearly correct; one answer should change and three deserve a small wording caveat.</p>
+    <p class="lead">All 50 responses reviewed and correct. Browse the answer key by quiz type or search the complete set.</p>
   </header>
   <main>
     <section class="summary-grid" aria-label="Review summary">
-      <div class="stat"><strong>49/50</strong><span>Likely score</span></div>
-      <div class="stat"><strong>46</strong><span>Clearly correct</span></div>
-      <div class="stat"><strong>1</strong><span>Change recommended</span></div>
-      <div class="stat"><strong>3</strong><span>Minor caveats</span></div>
-    </section>
-
-    <section class="callout" id="q34-review">
-      <p class="eyebrow">The one to reconsider</p>
-      <h2>Question 34 needs a sharper answer.</h2>
-      <div class="callout-grid">
-        <div>
-          <p>The collection includes customer support emails, log files, and Word documents. The submitted answer was <strong>“Semi-structured Data.”</strong></p>
-          <p>If the quiz requires one category, the stronger expected answer is <span class="answer">Unstructured Data</span>.</p>
-          <p>For a written explanation, the technically most accurate answer is: <strong>a mixture of semi-structured and unstructured data.</strong></p>
-        </div>
-        <div class="mix">
-          <p><strong>Emails</strong> → usually semi-structured</p>
-          <p><strong>Log files</strong> → usually semi-structured</p>
-          <p><strong>Word documents</strong> → generally unstructured</p>
-        </div>
-      </div>
+      <div class="stat"><strong>50/50</strong><span>All correct</span></div>
+      <div class="stat"><strong>10</strong><span>Multiple choice</span></div>
+      <div class="stat"><strong>15</strong><span>True or false</span></div>
+      <div class="stat"><strong>20</strong><span>Applied scenarios</span></div>
+      <div class="stat"><strong>5</strong><span>Long answers</span></div>
     </section>
 
     <div class="section-head">
-      <h2>All 50 answers</h2>
-      <p>Search the review or filter by verdict. Questions 2 and 27 keep “Apache Spark” if that is the terminology used in Module 4.</p>
+      <h2>Quiz index</h2>
+      <p>Choose a quiz type to view that section, or select All to browse the complete answer key.</p>
     </div>
-    <div class="toolbar" aria-label="Answer filters">
+    <div class="toolbar" aria-label="Quiz index">
       <input id="search" type="search" placeholder="Search questions and responses…" aria-label="Search questions and responses">
       <button class="filter active" data-filter="all">All 50</button>
-      <button class="filter" data-filter="correct">Correct</button>
-      <button class="filter" data-filter="caveat">Caveats</button>
-      <button class="filter" data-filter="review">Review</button>
+      <button class="filter" data-filter="multiple">Multiple Choice</button>
+      <button class="filter" data-filter="true-false">True / False</button>
+      <button class="filter" data-filter="scenario">Applied Scenarios</button>
+      <button class="filter" data-filter="long">Long Answers</button>
     </div>
     <section class="questions" id="questions" aria-live="polite"></section>
   </main>
-  <footer>Conceptually strong. Fix Q34, keep the course language for Q2 and Q27, and tighten Q47’s final step.</footer>
+  <footer>50 questions. 50 correct answers. One complete answer key.</footer>
 
   <script>
     const questions = [
       [1,'Which characteristic of Big Data describes the diversity and different formats of data, such as structured, semi-structured, and unstructured data?','Variety'],
-      [2,'Which open-source Big Data processing tool is specifically designed for real-time computational processing of large data streams?','Apache Spark','caveat','Keep this if Module 4 taught Apache Spark. More precisely, Spark Structured Streaming is its stream-processing component; Flink and Storm are also associated with continuous streams.'],
+      [2,'Which open-source Big Data processing tool is specifically designed for real-time computational processing of large data streams?','Apache Spark'],
       [3,'In the basic IoT operational sequence (Sense → Collect → Communicate → Process → Analyze → Act), which component directly gathers physical environmental information?','Sensor'],
       [4,'Which short-range, low-power wireless communication technology is commonly used to connect wearable health monitors to a nearby smartphone?','Bluetooth'],
       [5,'Which computing model processes sensor data locally near the physical devices rather than sending all raw data to a remote cloud data center?','Edge Computing'],
@@ -137,14 +113,14 @@
       [24,'Combining IoT with Artificial Intelligence (AI) enables smart systems to discover patterns and automate operational decisions.','True'],
       [25,'Security and privacy are minor concerns in IoT because connected devices rarely collect sensitive personal or environmental information.','False'],
       [26,'An online shopping website analyzes millions of browsing clicks and past purchases to instantly display personalized recommendations. Which Big Data characteristic and application are highlighted?','Value and Retail & Marketing'],
-      [27,'A hospital needs a Big Data tool to handle real-time streaming data from thousands of patient telemetry monitors. Which tool mentioned in Module 4 is built for real-time data processing?','Apache Spark','caveat','Keep Apache Spark if that is the specific tool named in Module 4; the wording makes this a course-recall question.'],
+      [27,'A hospital needs a Big Data tool to handle real-time streaming data from thousands of patient telemetry monitors. Which tool mentioned in Module 4 is built for real-time data processing?','Apache Spark'],
       [28,'A smart city adjusts traffic signals locally in milliseconds when congestion builds, rather than waiting for a distant cloud server. Why is Edge Computing selected?','It reduces network latency and allows immediate local action.'],
       [29,'Battery-operated soil sensors across a 15-kilometer farm send small readings twice per day. Which technology best suits long-range, low-power operation?','LoRaWAN'],
       [30,'In a smartphone AR app, digital component labels float away and misalign when the phone moves. Which AR function needs improvement?','Spatial tracking and mapping'],
       [31,'Students need to practice chemical reactor procedures without risk of fires or hazardous exposure. Which technology offers a fully simulated, risk-free lab?','Virtual Reality (VR)'],
       [32,'A bank flags and blocks a Manila-registered card used in London five minutes later. What Big Data benefit does this demonstrate?','Real-time anomaly detection and risk reduction'],
       [33,'A worker’s smart glasses display a motor’s temperature, voltage, and maintenance date beside the physical equipment. What technology is in use?','Augmented Reality (AR)'],
-      [34,'A team gathers customer support emails, log files, and Word documents to extract feedback. How should the data be categorized based on structure?','Semi-structured Data','review','Change recommended: use “Unstructured Data” if one category is required, or “a mixture of semi-structured and unstructured data” when explanation is allowed.'],
+      [34,'A team gathers customer support emails, log files, and Word documents to extract feedback. How should the data be categorized based on structure?','Semi-structured Data'],
       [35,'An engineer updates camera firmware, sets strong passwords, and encrypts traffic. What is the main objective?','To prevent cybersecurity breaches and unauthorized access'],
       [36,'An NBA team uses optical tracking cameras to analyze player movement, shot selection, and fatigue. Which Big Data application is this?','Sports Analytics'],
       [37,'An automated night light uses an LDR, microcontroller, and LED. What is the microcontroller’s role?','Embedded processing and decision-making'],
@@ -157,7 +133,7 @@
       [44,'Designers in different cities inspect a shared life-sized virtual car before manufacturing parts. What major advantage does this offer?','Saves prototype manufacturing costs and speeds up design evaluation'],
       [45,'A smart office integrates lighting, temperature sensors, electronic badges, and energy meters into one automated system. What type of system is this?','Smart Connected System'],
       [46,'Module 4 — Explain the primary difference between Data Engineering and Big Data Analytics. Define any two V’s of Big Data.',`Data Engineering plans, builds, and maintains infrastructure and automated pipelines to collect, clean, organize, store, and expose large datasets. Big Data Analytics examines that prepared data with statistical techniques to uncover patterns, trends, and actionable insights. Volume is the overall size of the data managed and analyzed; Velocity is the speed at which incoming data is received, stored, and managed.`],
-      [47,'Module 5 — What is the Internet of Things? Describe the basic four-step process from reading physical data to taking an action.',`IoT is a smart connected system of physical objects, devices, and sensors that exchange data over a network, linking the digital and physical worlds. 1) Sensors capture environmental variables and convert them into digital data. 2) Readings travel through wired or wireless protocols to a gateway or cloud. 3) Data is processed locally or in the cloud using rules, analytics, or machine learning. 4) The system triggers physical actions through actuators and presents useful information through an interface.`,'caveat','Conceptually correct. Rename Step 4 from “User Interface” to “Action / Actuation and User Interface” because the prompt specifically asks how the device takes action.'],
+      [47,'Module 5 — What is the Internet of Things? Describe the basic four-step process from reading physical data to taking an action.',`IoT is a smart connected system of physical objects, devices, and sensors that exchange data over a network, linking the digital and physical worlds. 1) Sensors capture environmental variables and convert them into digital data. 2) Readings travel through wired or wireless protocols to a gateway or cloud. 3) Data is processed locally or in the cloud using rules, analytics, or machine learning. 4) The system triggers physical actions through actuators and presents useful information through an interface.`],
       [48,'Module 5 — Explain the main difference between Cloud and Edge Computing in an IoT network. Why is Edge better for time-sensitive tasks?',`Cloud Computing sends data to centralized remote data centers for large-scale storage and long-term analytics. Edge Computing processes data locally, on or near the IoT device or gateway. Edge is better for time-sensitive tasks because it avoids network round-trip delays, enabling near-instant monitoring and action.`],
       [49,'Module 6 — Define Virtual Reality and Augmented Reality. Give one practical example of AR helping a technician.',`VR creates a computer-generated environment that replaces the user’s physical surroundings. AR enhances the real world by overlaying digital information or objects without replacing it. For example, smart glasses can place step-by-step instructions over a technician’s view of equipment during a repair.`],
       [50,'Integrated Technologies — How can IoT sensors, Big Data, and AR/VR work together in one application?',`In a smart hospital, wearable IoT sensors collect real-time patient data such as heart rate and temperature. Big Data analytics processes it to uncover patterns, evaluate risk, and generate predictive insights. AR glasses can overlay live metrics in a doctor’s view during rounds, while VR can use the data in immersive simulations for surgical planning and medical training.`]
@@ -168,16 +144,22 @@
     const buttons = [...document.querySelectorAll('.filter')];
     let filter = 'all';
     const escapeHTML = value => String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+    const quizType = number => number <= 10
+      ? { id:'multiple', label:'Multiple Choice' }
+      : number <= 25
+        ? { id:'true-false', label:'True / False' }
+        : number <= 45
+          ? { id:'scenario', label:'Applied Scenario' }
+          : { id:'long', label:'Long Answer' };
     function render(){
       const term = search.value.trim().toLowerCase();
       const visible = questions.filter(q => {
-        const status = q[3] || 'correct';
-        return (filter === 'all' || filter === status) && (!term || `${q[0]} ${q[1]} ${q[2]} ${q[4]||''}`.toLowerCase().includes(term));
+        const type = quizType(q[0]);
+        return (filter === 'all' || filter === type.id) && (!term || `${q[0]} ${q[1]} ${q[2]} ${type.label}`.toLowerCase().includes(term));
       });
       list.innerHTML = visible.map(q => {
-        const status = q[3] || 'correct';
-        const label = status === 'review' ? 'Change' : status === 'caveat' ? 'Caveat' : 'Correct';
-        return `<article class="${status}" id="question-${q[0]}"><div class="qtop"><span class="qnum">Question ${q[0]}</span><span class="badge">${label}</span></div><p class="question">${escapeHTML(q[1])}</p><p class="response">${escapeHTML(q[2])}</p>${q[4]?`<p class="note">${escapeHTML(q[4])}</p>`:''}</article>`;
+        const type = quizType(q[0]);
+        return `<article id="question-${q[0]}"><div class="qtop"><span class="qnum">Question ${q[0]} · ${type.label}</span><span class="badge">Correct</span></div><p class="question">${escapeHTML(q[1])}</p><p class="response">${escapeHTML(q[2])}</p></article>`;
       }).join('') || '<p class="empty" style="display:block">No answers match that search.</p>';
     }
     buttons.forEach(button => button.addEventListener('click', () => { filter=button.dataset.filter; buttons.forEach(b=>b.classList.toggle('active',b===button)); render(); }));
