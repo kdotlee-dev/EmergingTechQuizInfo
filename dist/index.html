@@ -70,7 +70,7 @@
   <header>
     <p class="eyebrow">Modules 4–6 · Review Report</p>
     <h1>Answers<br><span class="score">checked.</span></h1>
-    <p class="lead">All 50 responses reviewed and correct. Browse the answer key by quiz type or search the complete set.</p>
+    <p class="lead">All 50 responses reviewed and correct. Browse the answer key by exam type or search the complete set.</p>
   </header>
   <main>
     <section class="summary-grid" aria-label="Review summary">
@@ -83,9 +83,9 @@
 
     <div class="section-head">
       <h2>Exam index</h2>
-      <p>Choose a quiz type to view that section, or select All to browse the complete answer key.</p>
+      <p>Choose a exam type to view that section, or select All to browse the complete answer key.</p>
     </div>
-    <div class="toolbar" aria-label="Quiz index">
+    <div class="toolbar" aria-label="Exam index">
       <input id="search" type="search" placeholder="Search questions and responses…" aria-label="Search questions and responses">
       <button class="filter active" data-filter="all">All 50</button>
       <button class="filter" data-filter="multiple">Multiple Choice</button>
@@ -156,7 +156,7 @@
     const buttons = [...document.querySelectorAll('.filter')];
     let filter = 'all';
     const escapeHTML = value => String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-    const quizType = number => number <= 10
+    const examType = number => number <= 10
       ? { id:'multiple', label:'Multiple Choice' }
       : number <= 25
         ? { id:'true-false', label:'True / False' }
@@ -166,11 +166,11 @@
     function render(){
       const term = search.value.trim().toLowerCase();
       const visible = questions.filter(q => {
-        const type = quizType(q[0]);
+        const type = examType(q[0]);
         return (filter === 'all' || filter === type.id) && (!term || `${q[0]} ${q[1]} ${q[2]} ${type.label}`.toLowerCase().includes(term));
       });
       list.innerHTML = visible.map(q => {
-        const type = quizType(q[0]);
+        const type = examType(q[0]);
         return `<article id="question-${q[0]}"><div class="qtop"><span class="qnum">Question ${q[0]} · ${type.label}</span><span class="badge">Correct</span></div><p class="question">${escapeHTML(q[1])}</p><p class="response">${escapeHTML(q[2])}</p></article>`;
       }).join('') || '<p class="empty" style="display:block">No answers match that search.</p>';
     }
